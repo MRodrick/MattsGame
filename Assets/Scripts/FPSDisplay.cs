@@ -6,6 +6,9 @@ public class FPSDisplay : MonoBehaviour
 { 
     float deltaTime = 0.0f;
     Texture2D image = (Texture2D)Resources.Load("treasure_icons_16x16.png");
+    void Start() {
+        OnGUI();
+    }
 
     void Update()
     {
@@ -14,6 +17,7 @@ public class FPSDisplay : MonoBehaviour
 
     void OnGUI()
     {
+
         int w = Screen.width, h = Screen.height;
 
         GUIStyle style = new GUIStyle();
@@ -27,6 +31,7 @@ public class FPSDisplay : MonoBehaviour
         string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
         GUI.Label(rect, text, style);
         GUI.DrawTexture(new Rect(200, 200, 16, 16), image);
+
     }
 
 }

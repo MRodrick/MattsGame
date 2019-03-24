@@ -14,13 +14,13 @@ public class Player_New : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
     private bool facingRight = true;
-    public float coins = 0;
+    public float coins = 5;
 
     void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+        OnGUI();
     }
 
     void FixedUpdate()
@@ -86,6 +86,7 @@ public class Player_New : MonoBehaviour
     }
     public void deductCoins() {
         coins--;
+        OnGUI();
     }
     void OnGUI()
     {

@@ -10,13 +10,14 @@ public class Selection_Wheel : Player_New
     public GameObject Tent;
     public GameObject Wall;
     public GameObject Player;
+    int i;
     // Start is called before the first frame update
     Vector3 playerPos;
 
     void Start()
     {
         wheel.SetActive(false);
-
+        i = 0;
         playerPos = Player.transform.position;
         
     }
@@ -35,23 +36,82 @@ public class Selection_Wheel : Player_New
         }
     }
     public void opt1() {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
-        Instantiate(Torch, pos, Quaternion.identity);
-        base.deductCoins();
+        if (base.coins > 0)
+        {
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Instantiate(Torch, pos, Quaternion.identity);
+
+            base.deductCoins();
+        }
+        else {
+            i = 1;
+            OnGUI(); }
+        i = 0;
+        OnGUI();
     }
     public void opt2()
     {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z+0.1f);
-        Instantiate(House, pos, Quaternion.identity);
+        if (base.coins > 4)
+        {
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Instantiate(House, pos, Quaternion.identity);
+
+            base.deductCoins();
+        }
+        else
+        {
+            i = 1;
+            OnGUI();
+        }
+        i = 0;
+        OnGUI();
     }
     public void opt3()
     {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z + 0.1f);
-        Instantiate(Wall, pos, Quaternion.identity);
+        if (base.coins > 2)
+        {
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Instantiate(Wall, pos, Quaternion.identity);
+
+            base.deductCoins();
+        }
+        else
+        {
+            i = 1;
+            OnGUI();
+        }
+        i = 0;
+        OnGUI();
     }
     public void opt4()
     {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z + 0.1f);
-        Instantiate(Tent, pos, Quaternion.identity);
+        if (base.coins > 2)
+        {
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Instantiate(Tent, pos, Quaternion.identity);
+
+            base.deductCoins();
+        }
+        else
+        {
+            i = 1;
+            OnGUI();
+        }
+        i = 0;
+        OnGUI();
+    }
+    void OnGUI() {
+        if (i == 1) {
+            int w = Screen.width, h = Screen.height;
+
+            GUIStyle style = new GUIStyle();
+            style.alignment = TextAnchor.UpperCenter;
+            style.fontSize = h * 2 / 100;
+            style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
+            Rect rect = new Rect(0, 0, w, h * 2 / 100);
+            string text = string.Format("Not enough coins!");
+            GUI.Label(rect, text, style);
+
+        }
     }
 }
