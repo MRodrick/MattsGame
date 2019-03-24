@@ -18,6 +18,7 @@ public class Selection_Wheel : Player_New
         wheel.SetActive(false);
 
         playerPos = Player.transform.position;
+        
     }
 
     // Update is called once per frame
@@ -40,17 +41,17 @@ public class Selection_Wheel : Player_New
     }
     public void opt2()
     {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z);
+        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z+0.1f);
         Instantiate(House, pos, Quaternion.identity);
     }
     public void opt3()
     {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z);
+        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z + 0.1f);
         Instantiate(Wall, pos, Quaternion.identity);
     }
     public void opt4()
     {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z);
+        Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z + 0.1f);
         Instantiate(Tent, pos, Quaternion.identity);
     }
 }
