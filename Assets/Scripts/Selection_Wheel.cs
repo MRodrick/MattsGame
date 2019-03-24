@@ -16,6 +16,7 @@ public class Selection_Wheel : Player_New
     void Start()
     {
         wheel.SetActive(false);
+
         playerPos = Player.transform.position;
     }
 
@@ -35,6 +36,7 @@ public class Selection_Wheel : Player_New
     public void opt1() {
         Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
         Instantiate(Torch, pos, Quaternion.identity);
+        base.deductCoins();
     }
     public void opt2()
     {

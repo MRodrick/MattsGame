@@ -17,7 +17,7 @@ public class Lighting_3 : MonoBehaviour
     public Color day = Color.red;
     public Color black = Color.black;
     public Camera cm;
-    public float duration = 2.0f;
+    public float duration = 5.0f;
     public bool switched;
     public float t = 0f;
     public float intense = 0f;
