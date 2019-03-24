@@ -30,6 +30,6 @@ public class TextFade : MonoBehaviour
     void OnGUI()
     {
         //Fetch the Toggle's state
-        m_Fading = GUI.Toggle(new Rect(0, 0, 100, 30), m_Fading, "Fade In/Out");
+       // m_Fading = GUI.Toggle(new Rect(0, 0, 100, 30), m_Fading, "Fade In/Out");
     }
 }
