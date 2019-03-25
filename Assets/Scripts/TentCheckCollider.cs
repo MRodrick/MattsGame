@@ -18,7 +18,7 @@ public class TentCheckCollider : MonoBehaviour
     }
     void OnTriggerEnter2d(Collider2D other) {
        
-            Destroy(gameObject);
+            Destroy(me);
         
     }
 }

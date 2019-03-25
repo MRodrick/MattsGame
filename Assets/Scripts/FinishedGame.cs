@@ -19,10 +19,10 @@ public class FinishedGame : Player_New
     {
         if (other.gameObject.tag == "Player")
         {
-            if (base.coins >= 10)
-            {
+           // if (base.coins >= 10)
+           // {
                 Application.Quit();
-            }
+           // }
         }
 
     }

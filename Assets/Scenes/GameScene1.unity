@@ -410,7 +410,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: 0fc341b33bd348b41941d3871de006ec, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.19135642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -420,6 +420,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &92619480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6741280174118204733, guid: 8b0cb017a62b3fa43aa27163391ac2c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2002336267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &95118895
 GameObject:
   m_ObjectHideFlags: 0
@@ -7908,6 +7914,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128596610557284653, guid: 8b0cb017a62b3fa43aa27163391ac2c4,
+        type: 3}
+      propertyPath: me
+      value: 
+      objectReference: {fileID: 92619480}
+    - target: {fileID: 2134537593839216808, guid: 8b0cb017a62b3fa43aa27163391ac2c4,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922835548133851575, guid: 8b0cb017a62b3fa43aa27163391ac2c4,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922835548133851575, guid: 8b0cb017a62b3fa43aa27163391ac2c4,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0cb017a62b3fa43aa27163391ac2c4, type: 3}

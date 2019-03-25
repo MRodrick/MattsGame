@@ -119,7 +119,7 @@ public class Selection_Wheel : Player_New
     }
     void InstantiateNewObject(GameObject prefab, int minY, int maxY)
     {
-        Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z + 0.01f);
+        Vector3 pos = new Vector3(playerPos.x, playerPos.y - .2f, playerPos.z + 0.01f);
         
         Instantiate(prefab, pos, Quaternion.identity);
 
