@@ -1,6 +1,4 @@
-﻿//Attach this script to a GameObject
-//Create an Image GameObject by going to Create>UI>Image. Attach this Image to the Image field in your GameObject’s Inspector window.
-//This script creates a toggle that fades an Image in and out.
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
