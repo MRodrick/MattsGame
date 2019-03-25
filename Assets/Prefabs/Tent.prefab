@@ -150,3 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8aec2f0e913334fbf71b13e850755c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinSpawn: {fileID: 4121505618190321884, guid: 4ec555278eb666a4684c76db6a892663,
+    type: 3}
+  me: {fileID: 0}

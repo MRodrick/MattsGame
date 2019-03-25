@@ -5,7 +5,7 @@ using UnityEngine;
 public class FPSDisplay : MonoBehaviour
 { 
     float deltaTime = 0.0f;
-    Texture2D image = (Texture2D)Resources.Load("treasure_icons_16x16.png");
+
     void Start() {
         OnGUI();
     }

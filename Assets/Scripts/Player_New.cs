@@ -15,11 +15,21 @@ public class Player_New : MonoBehaviour
     private BoxCollider2D boxCollider;
     private bool facingRight = true;
     public float coins = 0;
-
+    public GUIStyle style;
+    public Rect rect;
+    string text;
     void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        int w = Screen.width, h = Screen.height;
+
+        style = new GUIStyle();
+
+        rect = new Rect(0, 0, w - 30, h * 2 / 100);
+        style.alignment = TextAnchor.UpperRight;
+        style.fontSize = h * 2 / 100;
+        style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
     }
 
     void FixedUpdate()
@@ -74,6 +84,8 @@ public class Player_New : MonoBehaviour
         {
             Application.Quit();
         }
+        text = coins.ToString();
+        Debug.Log(coins);
     }
 
     private void OnDisable() {
@@ -81,26 +93,26 @@ public class Player_New : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Coin") {
+        if (other.gameObject.tag == "Coin")
+        {
             Destroy(other.gameObject);
             coins++;
+        }
+        else if (other.gameObject.tag == "End Of Level") {
+            if (coins >= 10) {
+                Application.Quit();
+
+            }
+            else {  }
         }
     }
     public void deductCoins(int i) {
         coins = coins - i;
-        OnGUI();
     }
     public void OnGUI()
     {
-        int w = Screen.width, h = Screen.height;
-
-        GUIStyle style = new GUIStyle();
-             
-        Rect rect = new Rect(0, 0, w-30, h * 2 / 100);
-        style.alignment = TextAnchor.UpperRight;
-        style.fontSize = h * 2 / 100;
-        style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
-        string text= string.Format("Coins {0:0.}", coins);        
-        GUI.Label(rect, text, style);
+        
+                
+        GUI.Label(rect, "Coins :" + text, style);
     }
 }
