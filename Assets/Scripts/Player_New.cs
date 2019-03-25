@@ -18,6 +18,7 @@ public class Player_New : MonoBehaviour
     public GUIStyle style;
     public Rect rect;
     string text;
+
     void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
@@ -85,7 +86,7 @@ public class Player_New : MonoBehaviour
             Application.Quit();
         }
         text = coins.ToString();
-        Debug.Log(coins);
+
     }
 
     private void OnDisable() {
@@ -95,24 +96,19 @@ public class Player_New : MonoBehaviour
     {
         if (other.gameObject.tag == "Coin")
         {
+            coins = coins + 1;
             Destroy(other.gameObject);
-            coins++;
         }
-        else if (other.gameObject.tag == "End Of Level") {
-            if (coins >= 10) {
-                Application.Quit();
-
-            }
-            else {  }
-        }
+        
     }
+  
     public void deductCoins(int i) {
         coins = coins - i;
     }
     public void OnGUI()
     {
-        
-                
+
         GUI.Label(rect, "Coins :" + text, style);
+
     }
 }

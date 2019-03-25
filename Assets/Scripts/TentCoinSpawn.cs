@@ -5,7 +5,6 @@ using UnityEngine;
 public class TentCoinSpawn : MonoBehaviour
 {
     public GameObject coinSpawn;
-    public GameObject me;
     float Timer = 0.0f;
     Vector3 pos;
     Vector3 spawnPos;
@@ -32,4 +31,5 @@ public class TentCoinSpawn : MonoBehaviour
         spawnPos = new Vector3(pos.x, pos.y, pos.z-0.1f);
         Instantiate(coinSpawn, spawnPos, Quaternion.identity);
     }
+
 }

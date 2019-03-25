@@ -54,8 +54,7 @@ public class Selection_Wheel : Player_New
     {
         if (base.coins >= 4)
         {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z + 0.01f);
-            Instantiate(House, pos, Quaternion.identity);
+            InstantiateNewObject(House, 1, 3);
             base.deductCoins(4);
 
             base.OnGUI();
@@ -72,8 +71,8 @@ public class Selection_Wheel : Player_New
     {
         if (base.coins >= 2)
         {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z+0.01f);
-            Instantiate(Wall, pos, Quaternion.identity);
+            InstantiateNewObject(Wall, 1, 3);
+
             base.deductCoins(2);
             base.OnGUI();
 
@@ -90,8 +89,8 @@ public class Selection_Wheel : Player_New
     {
         if (base.coins >= 2)
         {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z + 0.01f);
-            Instantiate(Tent, pos, Quaternion.identity);
+            InstantiateNewObject(Tent, 1, 3);
+
 
             base.deductCoins(2);
             base.OnGUI();
@@ -118,4 +117,26 @@ public class Selection_Wheel : Player_New
 
         }
     }
+    void InstantiateNewObject(GameObject prefab, int minY, int maxY)
+    {
+        Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z + 0.01f);
+        
+        Instantiate(prefab, pos, Quaternion.identity);
+
+    }
+    /* void OnTriggerEnter2D(Collider2D other)
+     {
+         if (other.gameObject == Tent)
+         {
+
+             Destroy(other.gameObject);
+         }
+         if (other.gameObject.tag == "End Of Level")
+         {
+             // if (coins >= 10) {
+             Application.Quit();
+
+             //}
+         }
+     }*/
 }
