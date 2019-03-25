@@ -14,13 +14,12 @@ public class Player_New : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
     private bool facingRight = true;
-    public float coins = 5;
+    public float coins = 0;
 
     void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        OnGUI();
     }
 
     void FixedUpdate()
@@ -71,7 +70,10 @@ public class Player_New : MonoBehaviour
             rb2d.velocity = new Vector2(0, 0);
             animator.SetTrigger("startIdle");
         }
-        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void OnDisable() {
@@ -84,28 +86,21 @@ public class Player_New : MonoBehaviour
             coins++;
         }
     }
-    public void deductCoins() {
-        coins--;
+    public void deductCoins(int i) {
+        coins = coins - i;
         OnGUI();
     }
-    void OnGUI()
+    public void OnGUI()
     {
         int w = Screen.width, h = Screen.height;
 
         GUIStyle style = new GUIStyle();
-
+             
         Rect rect = new Rect(0, 0, w-30, h * 2 / 100);
         style.alignment = TextAnchor.UpperRight;
         style.fontSize = h * 2 / 100;
         style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
-        string text;
-        
-            text = string.Format("Coins {0:0}", coins);
-        
-        
-            text = string.Format("Coins {0:0}", coins);
-        
+        string text= string.Format("Coins {0:0.}", coins);        
         GUI.Label(rect, text, style);
     }
 }
-

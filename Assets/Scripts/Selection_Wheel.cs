@@ -36,12 +36,13 @@ public class Selection_Wheel : Player_New
         }
     }
     public void opt1() {
-        if (base.coins > 0)
+        if (base.coins >= 1)
         {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z-0.01f);
             Instantiate(Torch, pos, Quaternion.identity);
+            base.deductCoins(1);
 
-            base.deductCoins();
+            base.OnGUI();
         }
         else {
             i = 1;
@@ -51,12 +52,13 @@ public class Selection_Wheel : Player_New
     }
     public void opt2()
     {
-        if (base.coins > 4)
+        if (base.coins >= 4)
         {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z + 0.01f);
             Instantiate(House, pos, Quaternion.identity);
+            base.deductCoins(4);
 
-            base.deductCoins();
+            base.OnGUI();
         }
         else
         {
@@ -68,12 +70,13 @@ public class Selection_Wheel : Player_New
     }
     public void opt3()
     {
-        if (base.coins > 2)
+        if (base.coins >= 2)
         {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z+0.01f);
             Instantiate(Wall, pos, Quaternion.identity);
+            base.deductCoins(2);
+            base.OnGUI();
 
-            base.deductCoins();
         }
         else
         {
@@ -85,12 +88,13 @@ public class Selection_Wheel : Player_New
     }
     public void opt4()
     {
-        if (base.coins > 2)
+        if (base.coins >= 2)
         {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z);
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z + 0.01f);
             Instantiate(Tent, pos, Quaternion.identity);
 
-            base.deductCoins();
+            base.deductCoins(2);
+            base.OnGUI();
         }
         else
         {
