@@ -69,21 +69,17 @@ public class EnemyScript : MonoBehaviour
         Debug.Log(other.tag);
         if (other.tag == "Player")
         {
-         StartCoroutine( AttackPlayer());
+          AttackPlayer();
         }
         if (other.tag == "Wall (Clone)") {
 
         }
     }
 
-    IEnumerator AttackPlayer() {
+    void AttackPlayer() {
         rb2d.velocity = new Vector2(0, 0);
         anim.SetTrigger("Attack");
-        //Pause(10f);
-        yield return new WaitForSecondsRealtime(1000.0f);
-        Debug.Log("Start Move now");
         Move();
-        //anim.SetTrigger("Idle");
 
     }
     IEnumerator Pause(float i)
