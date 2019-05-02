@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
     public Button controls;
     public Button quit;
     public Button back;
+    public Image MainScene;
+    public Image inventory;
     public int i;
 
     private void Start()
@@ -48,7 +50,8 @@ public class MainMenu : MonoBehaviour
     public void ShowTutorial() {
         // play.gameObject.active = false;
         back.gameObject.active = true;
-
+        MainScene.gameObject.active = true;
+        inventory.gameObject.active = true;
         play.gameObject.active = false;
         tutorial.gameObject.active = false;
         controls.gameObject.active = false;
@@ -64,6 +67,8 @@ public class MainMenu : MonoBehaviour
         quit.gameObject.active = true;
         back.gameObject.active = false;
         text.gameObject.active = false;
+        MainScene.gameObject.active = false;
+        inventory.gameObject.active = false;
     }
 
    // public void Quit() {

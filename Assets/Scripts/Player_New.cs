@@ -10,7 +10,7 @@ public class Player_New : MonoBehaviour
     private Rigidbody2D rb2d;
     private Sprite mySprite;
     private SpriteRenderer sr;
-    public float speed;
+  //  public float speed;
     private Animator animator;
     private BoxCollider2D boxCollider;
     private bool facingRight = true;
@@ -87,6 +87,8 @@ public class Player_New : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+     //   Debug.Log("entered as player");
+
         if (other.gameObject.tag == "Coin")
         {
             coins = coins + 1;
