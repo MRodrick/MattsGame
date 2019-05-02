@@ -875,6 +875,9 @@ MonoBehaviour:
     the boat at the pier (to the right!)
 
 
+    Move around with the ARROW KEYS. Sprint using LShift.
+
+
     Start by building. Hold down the "i" key on the keyboard, and with the key still
     held left click on the building/object you want to build.
 
@@ -1312,7 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
-  play: {fileID: 0}
+  play: {fileID: 1606648377}
   tutorial: {fileID: 0}
   controls: {fileID: 0}
   quit: {fileID: 0}
@@ -1358,8 +1361,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1606648374}
-        m_MethodName: 
+      - m_Target: {fileID: 1606648376}
+        m_MethodName: mainMenuSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
