@@ -40,9 +40,9 @@ public class Selection_Wheel : Player_New
         {
             Vector3 pos = new Vector3(playerPos.x, playerPos.y - .3f, playerPos.z-0.01f);
             Instantiate(Torch, pos, Quaternion.identity);
-            base.deductCoins(1);
+            base.DeductCoins(1);
 
-            base.OnGUI();
+            OnGUI();
         }
         else {
             i = 1;
@@ -55,9 +55,9 @@ public class Selection_Wheel : Player_New
         if (base.coins >= 4)
         {
             InstantiateNewObject(House, 1, 3);
-            base.deductCoins(4);
+            base.DeductCoins(4);
 
-            base.OnGUI();
+            OnGUI();
         }
         else
         {
@@ -73,8 +73,8 @@ public class Selection_Wheel : Player_New
         {
             InstantiateNewObject(Wall, 1, 3);
 
-            base.deductCoins(2);
-            base.OnGUI();
+            base.DeductCoins(2);
+            OnGUI();
 
         }
         else
@@ -92,8 +92,8 @@ public class Selection_Wheel : Player_New
             InstantiateNewObject(Tent, 1, 3);
 
 
-            base.deductCoins(2);
-            base.OnGUI();
+            base.DeductCoins(2);
+            OnGUI();
         }
         else
         {
@@ -104,18 +104,33 @@ public class Selection_Wheel : Player_New
         OnGUI();
     }
     void OnGUI() {
-        if (i == 1) {
-            int w = Screen.width, h = Screen.height;
+        /*int w = Screen.width, h = Screen.height;
 
-            GUIStyle style = new GUIStyle();
-            style.alignment = TextAnchor.UpperCenter;
-            style.fontSize = h * 2 / 100;
-            style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
-            Rect rect = new Rect(0, 0, w, h * 2 / 100);
+        GUIStyle style = new GUIStyle();
+        style.alignment = TextAnchor.UpperCenter;
+        style.fontSize = h * 2 / 100;
+        style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
+        Rect rect = new Rect(0, 0, w, h * 2 / 100);
+        if (i == 1)
+        {
             string text = string.Format("Not enough coins!");
             GUI.Label(rect, text, style);
 
         }
+        else {
+            string text = string.Format("");
+            GUI.Label(rect, text, style);
+
+        }*/
+        int w = Screen.width, h = Screen.height;
+
+        style = new GUIStyle();
+
+        rect = new Rect(0, 0, w - 30, h * 2 / 100);
+        style.alignment = TextAnchor.UpperRight;
+        style.fontSize = h * 2 / 100;
+        style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
+        GUI.Label(rect, "Coins :" + base.coins, style);
     }
     void InstantiateNewObject(GameObject prefab, int minY, int maxY)
     {

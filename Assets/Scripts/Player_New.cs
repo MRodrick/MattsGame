@@ -14,7 +14,7 @@ public class Player_New : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
     private bool facingRight = true;
-    public float coins = 0;
+    public int coins = 0;
     public GUIStyle style;
     public Rect rect;
     string text;
@@ -23,14 +23,7 @@ public class Player_New : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        int w = Screen.width, h = Screen.height;
-
-        style = new GUIStyle();
-
-        rect = new Rect(0, 0, w - 30, h * 2 / 100);
-        style.alignment = TextAnchor.UpperRight;
-        style.fontSize = h * 2 / 100;
-        style.normal.textColor = new Color(1.0f, 1.0f, 1.5f, 1.0f);
+        
     }
 
     void FixedUpdate()
@@ -102,13 +95,13 @@ public class Player_New : MonoBehaviour
         
     }
   
-    public void deductCoins(int i) {
-        coins = coins - i;
+    public void DeductCoins(int i) {
+        this.coins = coins - i;
+
     }
-    public void OnGUI()
+   /* public void OnGUI()
     {
+        
 
-        GUI.Label(rect, "Coins :" + text, style);
-
-    }
+    }*/
 }

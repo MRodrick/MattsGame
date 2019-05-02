@@ -739,7 +739,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 560543223}
-        m_MethodName: mainMenuSelection
+        m_MethodName: ShowTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &712522835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -880,6 +880,8 @@ MonoBehaviour:
 
     As the night comes, monsters may start to spawn from the forest. Build defences
     to stop their enslaught!
+
+    If a monster makes it to you, you will instantly be killed.
 
 '
 --- !u!222 &712522837
@@ -988,7 +990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1271555575
 RectTransform:
   m_ObjectHideFlags: 0
