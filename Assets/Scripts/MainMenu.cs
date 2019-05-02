@@ -15,8 +15,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        text.gameObject.SetActive(false);
-        back.gameObject.SetActive(false);
+       // text.gameObject.active = false;
+       // back.gameObject.active = false;
     }
     
     public void mainMenuSelection() {
@@ -47,11 +47,12 @@ public class MainMenu : MonoBehaviour
 
     public void ShowTutorial() {
         // play.gameObject.active = false;
+        back.gameObject.active = true;
+
         play.gameObject.active = false;
         tutorial.gameObject.active = false;
         controls.gameObject.active = false;
         quit.gameObject.active = false;
-        back.gameObject.active = true;
         text.gameObject.active = true;
     }
 
@@ -65,9 +66,9 @@ public class MainMenu : MonoBehaviour
         text.gameObject.active = false;
     }
 
-    public void Quit() {
-        Application.Quit();
-    }
+   // public void Quit() {
+    //    Application.Quit();
+   // }
 
 }
 

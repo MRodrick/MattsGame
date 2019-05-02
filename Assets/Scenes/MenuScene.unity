@@ -419,18 +419,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 386027749}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 386027751}
-        m_MethodName: Quit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &386027749
@@ -750,7 +739,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 560543223}
-        m_MethodName: ShowTutorial
+        m_MethodName: mainMenuSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -880,6 +869,13 @@ MonoBehaviour:
 
     Start by building. Hold down the "i" key on the keyboard, and with the key still
     held left click on the building/object you want to build.
+
+
+    Tents produce 1 coin every 5 seconds
+
+    Houses 1 coin every 3 seconds
+
+    You need 10 coins to unlock he boat in the port and sail away!
 
 
     As the night comes, monsters may start to spawn from the forest. Build defences
@@ -1031,7 +1027,7 @@ MonoBehaviour:
   controls: {fileID: 272081321}
   quit: {fileID: 386027748}
   back: {fileID: 1271555577}
-  i: 2
+  i: 0
 --- !u!114 &1271555577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,9 +1174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 712522836}
   play: {fileID: 1606648377}
-  tutorial: {fileID: 0}
-  controls: {fileID: 0}
-  quit: {fileID: 0}
+  tutorial: {fileID: 560543224}
+  controls: {fileID: 272081321}
+  quit: {fileID: 386027748}
   back: {fileID: 1271555577}
   i: 0
 --- !u!1 &1548992386
