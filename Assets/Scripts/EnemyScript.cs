@@ -15,10 +15,14 @@ public class EnemyScript : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
     private bool facingRight = true;
+    private int wallAttacks = 0;
     Collider2D wall;
+    GameObject wallObject;
+    public WallHealth aWall;
      // Start is called before the first frame update
     void Start()
     {
+        
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -30,11 +34,15 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(wall);
+      //  Debug.Log("wallHealth" + aWall.curHealth);
+
         if (wall != null)
         {
-            WallBroken(wall);
+            WallBroken();
         }
-        else { Move(); }
+        else {
+            Move(); }
     }
     void Move() {
         float x = 0;
@@ -42,7 +50,7 @@ public class EnemyScript : MonoBehaviour
         if (x > 1)
         {
             x = playerLocation.position.x > transform.position.x ? 1 : -1;
-            Debug.Log(x);
+            //Debug.Log(x);
             if (x == 1)
             {
 
@@ -71,16 +79,31 @@ public class EnemyScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.tag);
+        rb2d.velocity = new Vector2(0, 0);
         if (other.tag == "Player")
         {
           AttackPlayer();
         }
         if (other.tag == "Wall") {
+            wallObject = other.gameObject;
+            Debug.Log(wallObject.tag);
+
             wall = other;
+            aWall = wallObject.GetComponent<WallHealth>();
+
             AttackWall(wall);
+
+
+            Debug.Log(aWall.curHealth);
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+      //  Debug.Log(collision.tag);
+        Move();
+  //      if (collision.tag == "Player") { Move(); }
+    }
     void AttackPlayer() {
         rb2d.velocity = new Vector2(0, 0);
         if (facingRight == true)
@@ -88,25 +111,43 @@ public class EnemyScript : MonoBehaviour
             anim.SetTrigger("Attack");
         }
         else { anim.SetTrigger("Attack Left"); }
-        Move(); 
     }
-
+    private void OnTriggerStay2D(Collider2D other)
+    {
+  //      Debug.Log(other.tag);
+        if (other.tag == "Wall")
+        {
+            wall = other;
+            AttackWall(wall);
+        }
+    }
+    
     void AttackWall(Collider2D wall) {
-        rb2d.velocity = new Vector2(0, 0);
+        
         if (facingRight == true)
         {
             anim.SetTrigger("Attack");
         }
         else { anim.SetTrigger("Attack Left"); }
+        aWall.curHealth -= 0.5f;
+        rb2d.velocity = new Vector2(-0.5f, 0);
 
-        if (WallBroken(wall))
-        {
-            AttackWall(wall);
-        }
     }
-    bool WallBroken(Collider2D wall) {
+    bool WallBroken() {
+        if (aWall.curHealth == 0)
+        {
+            wallAttacks = 0;
+            wallObject.SetActive(false);
+            wall = null;
+            wallObject = null;
+            Move();
 
-        return false;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     IEnumerator Pause(float i)
     {
