@@ -79,7 +79,7 @@ public class EnemyScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
+       // Debug.Log(other.tag);
         rb2d.velocity = new Vector2(0, 0);
         if (other.tag == "Player")
         {
@@ -87,7 +87,7 @@ public class EnemyScript : MonoBehaviour
         }
         if (other.tag == "Wall") {
             wallObject = other.gameObject;
-            Debug.Log(wallObject.tag);
+           // Debug.Log(wallObject.tag);
 
             wall = other;
             aWall = wallObject.GetComponent<WallHealth>();
@@ -99,7 +99,7 @@ public class EnemyScript : MonoBehaviour
         }
         if (other.tag == "Arrow") {
             wallObject = other.gameObject;
-            Debug.Log("Arrow");
+            //Debug.Log("Arrow");
         }
     }
 
@@ -109,6 +109,7 @@ public class EnemyScript : MonoBehaviour
         Move();
   //      if (collision.tag == "Player") { Move(); }
     }
+
     void AttackPlayer(GameObject p) {
         rb2d.velocity = new Vector2(0, 0);
         if (facingRight == true)
@@ -118,6 +119,7 @@ public class EnemyScript : MonoBehaviour
         else { anim.SetTrigger("Attack Left"); }
         p.SetActive(false);
     }
+
     private void OnTriggerStay2D(Collider2D other)
     {
   //      Debug.Log(other.tag);
@@ -157,7 +159,7 @@ public class EnemyScript : MonoBehaviour
     }
     IEnumerator Pause(float i)
     {
-        Debug.Log("waiting");
+        //Debug.Log("waiting");
         yield return new WaitForSecondsRealtime(i);
     }
 }

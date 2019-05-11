@@ -271,7 +271,7 @@ using UnityEditor;
             if (m_Target == null)
                 return;
 
-            Vector3 toTarget = m_Target.position - transform.position;
+            Vector3 .b = m_Target.position - transform.position;
 
             if (toTarget.sqrMagnitude < viewDistance * viewDistance)
             {
