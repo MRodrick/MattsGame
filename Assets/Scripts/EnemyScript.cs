@@ -19,6 +19,7 @@ public class EnemyScript : MonoBehaviour
     Collider2D wall;
     GameObject wallObject;
     public WallHealth aWall;
+    GameObject arrow;
      // Start is called before the first frame update
     void Start()
     {
@@ -82,7 +83,7 @@ public class EnemyScript : MonoBehaviour
         rb2d.velocity = new Vector2(0, 0);
         if (other.tag == "Player")
         {
-          AttackPlayer();
+          AttackPlayer(other.gameObject);
         }
         if (other.tag == "Wall") {
             wallObject = other.gameObject;
@@ -94,7 +95,11 @@ public class EnemyScript : MonoBehaviour
             AttackWall(wall);
 
 
-            Debug.Log(aWall.curHealth);
+          //  Debug.Log(aWall.curHealth);
+        }
+        if (other.tag == "Arrow") {
+            wallObject = other.gameObject;
+            Debug.Log("Arrow");
         }
     }
 
@@ -104,13 +109,14 @@ public class EnemyScript : MonoBehaviour
         Move();
   //      if (collision.tag == "Player") { Move(); }
     }
-    void AttackPlayer() {
+    void AttackPlayer(GameObject p) {
         rb2d.velocity = new Vector2(0, 0);
         if (facingRight == true)
         {
             anim.SetTrigger("Attack");
         }
         else { anim.SetTrigger("Attack Left"); }
+        p.SetActive(false);
     }
     private void OnTriggerStay2D(Collider2D other)
     {

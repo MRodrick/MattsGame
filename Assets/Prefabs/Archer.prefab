@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8995064048507116365}
   - component: {fileID: 8995064048507116364}
   - component: {fileID: 8995064048507116363}
+  - component: {fileID: 561863551305265117}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -99,3 +100,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &561863551305265117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995064048507116362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfd16ddf31eb8243b430375a7fcaed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDirection: 0
+  viewFov: 0
+  viewDistance: 10
+  timeBeforeTargetLost: 3
