@@ -28,6 +28,12 @@ public class Archer : MonoBehaviour
     private void Start()
     {
         myCollider = GetComponent<Collider2D>();
-
+        anim = GetComponent<Animator>();
+        Move();
     }
+    private void Move() {
+        rb2d.velocity = new Vector2(-4, 0);
+        anim.SetTrigger("");
+    }
+
 }
