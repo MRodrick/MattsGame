@@ -5,25 +5,29 @@ using UnityEngine;
 public class Archer : MonoBehaviour
 {
 
-    [Tooltip("The angle of the forward of the view cone. 0 is forward of the sprite, 90 is up, 180 behind etc.")]
+    public Vector2 movement;
     [Range(0.0f, 360.0f)]
     public float viewDirection = 0.0f;
     [Range(0.0f, 360.0f)]
     public float viewFov;
     public float viewDistance;
-    [Tooltip("Time in seconds without the target in the view cone before the target is considered lost from sight")]
-    public float timeBeforeTargetLost = 3.0f;
+    public float targetLost = 2.0f;
+    [Header("Range Attack Data")]
+    [Tooltip("From where the projectile are spawned")]
+    public Transform shootingOrigin;
+
+    private Collider2D myCollider;
+    private Rigidbody2D rb2d;
+    private Animator anim;
+    private Transform target;
+    protected float fireRate = 0.0f;
+
+    protected RaycastHit2D[] RaycastHitCache = new RaycastHit2D[8];
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
+        myCollider = GetComponent<Collider2D>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
