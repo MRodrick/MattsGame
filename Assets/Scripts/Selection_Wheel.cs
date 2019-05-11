@@ -10,6 +10,7 @@ public class Selection_Wheel : Player_New
     public GameObject Tent;
     public GameObject Wall;
     public GameObject Player;
+    public GameObject archer;
     int i;
     // Start is called before the first frame update
     Vector3 playerPos;
@@ -102,6 +103,23 @@ public class Selection_Wheel : Player_New
         }
         i = 0;
         OnGUI();
+    }
+
+    public void opt5()
+    {
+        if (base.coins >= 0)
+        {
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z + 0.01f);
+
+            Instantiate(archer, pos, Quaternion.identity);
+
+            base.DeductCoins(4);
+            OnGUI();
+        }
+        else {
+            i = 1;
+        }
+        i = 0;
     }
     void OnGUI() {
         /*int w = Screen.width, h = Screen.height;

@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 namespace Gamekit2D
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+   /* [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Damager))]
     public class Bullet : MonoBehaviour
     {
@@ -77,5 +77,5 @@ namespace Gamekit2D
 
             VFXController.Instance.Trigger(VFX_HASH, transform.position, 0, m_SpriteRenderer.flipX, null, surfaceHit);
         }
-    }
+    }*/
 }

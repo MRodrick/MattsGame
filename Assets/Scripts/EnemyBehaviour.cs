@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-    [RequireComponent(typeof(CharacterController2D))]
+   /* [RequireComponent(typeof(CharacterController2D))]
     [RequireComponent(typeof(Collider2D))]
     public class EnemyBehaviour : MonoBehaviour
     {
@@ -585,3 +585,4 @@ using UnityEditor;
         }
     }
 #endif
+    */
