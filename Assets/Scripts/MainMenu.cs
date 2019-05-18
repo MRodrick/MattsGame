@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
 
         }
         else if (i == 4) {
-
+            Application.Quit();
         }
 
 

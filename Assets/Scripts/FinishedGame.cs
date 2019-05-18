@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class FinishedGame : Player_New
@@ -23,7 +24,7 @@ public class FinishedGame : Player_New
             Debug.Log(p.coins);
             if (p.coins >= 10)
             {
-                Application.Quit();
+                SceneManager.LoadScene("Ending");
             }
         }
 

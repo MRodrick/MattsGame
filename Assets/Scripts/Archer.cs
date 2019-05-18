@@ -21,8 +21,14 @@ public class Archer : MonoBehaviour
     private Animator anim;
     private Transform target;
     protected float fireRate = 0.0f;
+    public GameObject arrow;
+    public GameObject spawnedArrow;
+    private GameObject enemy;
     private bool atWall = false;
-  //  protected RaycastHit2D[] RaycastHitCache = new RaycastHit2D[8];
+    [Range(0.0f, 30.0f)]
+    public float range;
+
+    //  protected RaycastHit2D[] RaycastHitCache = new RaycastHit2D[8];
 
 
     private void Start()
@@ -30,11 +36,19 @@ public class Archer : MonoBehaviour
         myCollider = GetComponent<Collider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
         Move();
     }
     private void Update()
     {
-        Move();
+        spawnedArrow = GameObject.FindGameObjectWithTag("Arrow");
+        if (checkForObstacle(range) && spawnedArrow == null)
+        {
+            fire();
+        }
+        else {
+            Move();
+        }
     }
     private void Move()
     {
@@ -62,16 +76,22 @@ public class Archer : MonoBehaviour
         {
             rb2d.velocity = new Vector2(0, 0);
             anim.SetTrigger("Idle");
+            atWall = true;
         }
     }
+    private void fire() {
+        anim.SetTrigger("Fire");
+        new WaitForSeconds(10f);
+        Instantiate(arrow, new Vector3(transform.position.x, 3, -4), Quaternion.identity);
 
+    }
     public bool checkForObstacle(float distance)
     {
-        if (Physics2D.CircleCast(myCollider.bounds.center, myCollider.bounds.extents.y, Vector2.left, distance))
-        { 
+        if (Mathf.Abs(enemy.transform.position.x - transform.position.x) > distance)
+        {
             return false;
         }
-        return false;
+        else { return true; }
 
     }
 }
