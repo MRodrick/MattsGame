@@ -18,7 +18,7 @@ public class Player_New : MonoBehaviour
     public GUIStyle style;
     public Rect rect;
     string text;
-
+    public bool dead = false;
     void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();

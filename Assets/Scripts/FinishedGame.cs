@@ -19,10 +19,12 @@ public class FinishedGame : Player_New
     {
         if (other.gameObject.tag == "Player")
         {
-           // if (base.coins >= 10)
-           // {
+            Player_New p = other.gameObject.GetComponent(typeof (Player_New)) as Player_New;
+            Debug.Log(p.coins);
+            if (p.coins >= 10)
+            {
                 Application.Quit();
-           // }
+            }
         }
 
     }
