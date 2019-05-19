@@ -130,7 +130,7 @@ public class EnemyScript : Player_New
         else { anim.SetTrigger("Attack Left"); }
 
         
-        p.active = false;
+        //p.active = false;
         //Time.timeScale = 0;
     }
 

@@ -110,9 +110,8 @@ public class Player_New : MonoBehaviour
             Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "Enemy") {
-            restart.active = true;
-            death2.active = true;
             death.active = true;
+            gameObject.SetActive(false);
         }
         
     }
