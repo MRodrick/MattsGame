@@ -162,6 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  death: {fileID: 0}
-  paused: {fileID: 0}
+  death: {fileID: 3369631953593136431, guid: d2b932648d39dfc4e953dc338157e378, type: 3}
+  paused: {fileID: 3654956136903769308, guid: 5c1cbfde548e24d4cae78e3f6ade31bd, type: 3}
   aWall: {fileID: 0}

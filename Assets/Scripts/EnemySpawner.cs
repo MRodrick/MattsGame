@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     bool spawn = false;
     void Start()
     {
-       InvokeRepeating("spawner", 0.0f, 5.0f);
+       InvokeRepeating("spawner", 0.0f, 3.0f);
     }
 
     // Update is called once per frame

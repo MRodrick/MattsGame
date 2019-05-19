@@ -130,9 +130,9 @@ public class EnemyScript : MonoBehaviour
         }
         else { anim.SetTrigger("Attack Left"); }
         p.SetActive(false);
-        death.active = true;
-        paused.active = true;
-        Time.timeScale = 0;
+        death.SetActive(true);
+        paused.SetActive(true);
+        //Time.timeScale = 0;
     }
 
     void AttackArcher(GameObject a) {
@@ -155,7 +155,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
     private void Injured() {
-        health = health - 15;
+        health = health - 5;
         Debug.Log(health);
         if (health <= 0)
         {
