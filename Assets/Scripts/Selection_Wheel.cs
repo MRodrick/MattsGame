@@ -107,7 +107,7 @@ public class Selection_Wheel : Player_New
 
     public void opt5()
     {
-        if (base.coins >= 0)
+        if (base.coins >= 3)
         {
             Vector3 pos = new Vector3(playerPos.x, playerPos.y, playerPos.z + 0.01f);
 

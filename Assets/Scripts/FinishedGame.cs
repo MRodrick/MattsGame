@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class FinishedGame : Player_New
+public class FinishedGame :Player_New
 {
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -20,9 +21,7 @@ public class FinishedGame : Player_New
     {
         if (other.gameObject.tag == "Player")
         {
-            Player_New p = other.gameObject.GetComponent(typeof (Player_New)) as Player_New;
-            Debug.Log(p.coins);
-            if (p.coins >= 10)
+            if (base.coins >= 15)
             {
                 SceneManager.LoadScene("Ending");
             }
