@@ -9272,6 +9272,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 19.000792
       objectReference: {fileID: 0}
+    - target: {fileID: 8584689425439437752, guid: 85172cf3d19966e4396be4912578e2c6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2600423684285803481, guid: 85172cf3d19966e4396be4912578e2c6,
         type: 3}
       propertyPath: m_LocalPosition.y
