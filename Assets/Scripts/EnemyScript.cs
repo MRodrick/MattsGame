@@ -9,8 +9,8 @@ public class EnemyScript : MonoBehaviour
     Animator anim;
     private Vector2 velocity;
     private Rigidbody2D rb2d;
-    private Sprite mySprite;
-    private SpriteRenderer sr;
+   // private Sprite mySprite;
+   // private SpriteRenderer sr;
     public float speed;
     private Animator animator;
     private BoxCollider2D boxCollider;
@@ -19,7 +19,8 @@ public class EnemyScript : MonoBehaviour
     Collider2D wall;
     GameObject wallObject;
     public WallHealth aWall;
-    GameObject arrow;
+    //  GameObject arrow;
+    private int health = 100;
      // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +37,12 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         //Debug.Log(wall);
-      //  Debug.Log("wallHealth" + aWall.curHealth);
-
+        //  Debug.Log("wallHealth" + aWall.curHealth);
+        if (health <= 0) {
+            anim.SetTrigger("Die");
+            new WaitForSecondsRealtime(2f);
+            Destroy(this.gameObject);
+        }
         if (wall != null)
         {
             WallBroken();
@@ -83,11 +88,13 @@ public class EnemyScript : MonoBehaviour
         rb2d.velocity = new Vector2(0, 0);
         if (other.tag == "Player")
         {
-          AttackPlayer(other.gameObject);
+            AttackPlayer(other.gameObject);
         }
-        if (other.tag == "Wall") {
+
+        else if (other.tag == "Wall")
+        {
             wallObject = other.gameObject;
-           // Debug.Log(wallObject.tag);
+            // Debug.Log(wallObject.tag);
 
             wall = other;
             aWall = wallObject.GetComponent<WallHealth>();
@@ -95,11 +102,14 @@ public class EnemyScript : MonoBehaviour
             AttackWall(wall);
 
 
-          //  Debug.Log(aWall.curHealth);
+            //  Debug.Log(aWall.curHealth);
         }
-        if (other.tag == "Arrow") {
-            wallObject = other.gameObject;
-            //Debug.Log("Arrow");
+        else if (other.tag == "Archer") {
+            AttackArcher(other.gameObject);
+        }
+        else if (other.tag == "Arrow")
+        {
+            Injured();
         }
     }
 
@@ -120,6 +130,16 @@ public class EnemyScript : MonoBehaviour
         p.SetActive(false);
     }
 
+    void AttackArcher(GameObject a) {
+        rb2d.velocity = new Vector2(0, 0);
+        if (facingRight == true)
+        {
+            anim.SetTrigger("Attack");
+        }
+        else { anim.SetTrigger("Attack Left"); }
+        a.SetActive(false);
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
   //      Debug.Log(other.tag);
@@ -129,7 +149,18 @@ public class EnemyScript : MonoBehaviour
             AttackWall(wall);
         }
     }
-    
+    private void Injured() {
+        health = health - 15;
+        Debug.Log(health);
+        if (health <= 0)
+        {
+            anim.SetTrigger("Die");
+        }
+        else { anim.SetTrigger("Hit"); }
+        
+        
+    }
+
     void AttackWall(Collider2D wall) {
         
         if (facingRight == true)

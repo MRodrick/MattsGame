@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3499097075006668018}
   m_Layer: 0
   m_Name: Archer
-  m_TagString: Untagged
+  m_TagString: Archer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,9 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfd16ddf31eb8243b430375a7fcaed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 0}
+  arrow: {fileID: 4122447619153774967, guid: 373376e434112d541b5daa1f2a00b344, type: 3}
   spawnedArrow: {fileID: 0}
-  range: 0
+  range: 20
 --- !u!50 &7389106881862787657
 Rigidbody2D:
   serializedVersion: 4
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8995064048507116362}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

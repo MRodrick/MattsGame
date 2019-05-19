@@ -24,6 +24,7 @@ public class Archer : MonoBehaviour
     public GameObject arrow;
     public GameObject spawnedArrow;
     private GameObject enemy;
+    private GameObject enemyClone;
     private bool atWall = false;
     [Range(0.0f, 30.0f)]
     public float range;
@@ -37,10 +38,14 @@ public class Archer : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         enemy = GameObject.FindGameObjectWithTag("Enemy");
+        
         Move();
     }
     private void Update()
     {
+    if(enemy == null){
+            enemy = GameObject.FindGameObjectWithTag("Enemy");
+    }
         spawnedArrow = GameObject.FindGameObjectWithTag("Arrow");
         if (checkForObstacle(range) && spawnedArrow == null)
         {

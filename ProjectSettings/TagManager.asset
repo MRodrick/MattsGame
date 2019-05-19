@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Ground
   - Arrow
+  - Archer
   layers:
   - Default
   - TransparentFX
