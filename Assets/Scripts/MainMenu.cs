@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public Button back;
     public Image MainScene;
     public Image inventory;
+    public Image controlScheme;
     public int i;
 
     private void Start()
@@ -32,7 +33,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (i == 3)
         {
-
+            ShowControls();
         }
         else if (i == 4) {
             Application.Quit();
@@ -57,10 +58,20 @@ public class MainMenu : MonoBehaviour
         controls.gameObject.active = false;
         quit.gameObject.active = false;
         text.gameObject.active = true;
+        controls.gameObject.active = false;
     }
 
-
+    public void ShowControls() {
+        back.gameObject.active = true;
+        controlScheme.gameObject.active = true;
+        play.gameObject.active = false;
+        tutorial.gameObject.active = false;
+        controls.gameObject.active = false;
+        quit.gameObject.active = false;
+        text.gameObject.active = false;
+    }
     public void BackButton() {
+        controlScheme.gameObject.active = false;
         play.gameObject.active = true;
         tutorial.gameObject.active = true;
         controls.gameObject.active = true;
