@@ -82,7 +82,7 @@ public class Archer : MonoBehaviour
     private void fire() {
         anim.SetTrigger("Fire");
         new WaitForSeconds(10f);
-        Instantiate(arrow, new Vector3(transform.position.x, 3, -4), Quaternion.identity);
+        Instantiate(arrow, new Vector3(transform.position.x, 2, -4), Quaternion.identity);
 
     }
     public bool checkForObstacle(float distance)
