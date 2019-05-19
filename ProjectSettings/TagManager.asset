@@ -11,6 +11,8 @@ TagManager:
   - Arrow
   - Archer
   - Boat
+  - Death
+  - Paused
   layers:
   - Default
   - TransparentFX

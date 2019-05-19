@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : Player_New 
 {
     GameObject player;
     Transform playerLocation;
@@ -18,8 +18,7 @@ public class EnemyScript : MonoBehaviour
     private int wallAttacks = 0;
     Collider2D wall;
     GameObject wallObject;
-    public GameObject death;
-    public GameObject paused;
+
     public WallHealth aWall;
     //  GameObject arrow;
     private int health = 100;
@@ -129,9 +128,9 @@ public class EnemyScript : MonoBehaviour
             anim.SetTrigger("Attack");
         }
         else { anim.SetTrigger("Attack Left"); }
-        p.SetActive(false);
-        death.SetActive(true);
-        paused.SetActive(true);
+
+        
+        p.active = false;
         //Time.timeScale = 0;
     }
 

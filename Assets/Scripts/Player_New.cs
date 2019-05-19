@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class Player_New : MonoBehaviour
 {
     public GameObject paused;
-    public GameObject camera;
+    public GameObject death;
+    public GameObject death2;
+    public GameObject restart;
+
     private Vector2 velocity;
     private Rigidbody2D rb2d;
     private Sprite mySprite;
@@ -24,15 +27,16 @@ public class Player_New : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        Time.timeScale = 1;
         
     }
-
+   
     void FixedUpdate()
     {
         bool clicked = false;
         if (Input.GetKey(KeyCode.Escape))
         {
-            if (Time.timeScale == 1 && transform.position.x != 0)
+            if (Time.timeScale == 1)
             {
                 paused.SetActive(true);
                // camera.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
@@ -98,12 +102,17 @@ public class Player_New : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-     //   Debug.Log("entered as player");
+        //   Debug.Log("entered as player");
 
         if (other.gameObject.tag == "Coin")
         {
             coins = coins + 1;
             Destroy(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Enemy") {
+            restart.active = true;
+            death2.active = true;
+            death.active = true;
         }
         
     }
