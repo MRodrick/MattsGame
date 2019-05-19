@@ -1717,8 +1717,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 45}
-  m_SizeDelta: {x: 180, y: 230}
+  m_AnchoredPosition: {x: -250, y: 49.1}
+  m_SizeDelta: {x: 227.8, y: 373.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712522836
 MonoBehaviour:
@@ -1762,21 +1762,21 @@ MonoBehaviour:
     Move around with the ARROW KEYS. Sprint using LShift.
 
 
-    Start by building. Hold down the "i" key on the keyboard, and with the key still
-    held left click on the building/object you want to build.
-
-
     Tents produce 1 coin every 5 seconds
 
     Houses 1 coin every 3 seconds
 
+    Torches provide light
+
+    Walls prevent the skeletons from overruning your town
+
+    Archers will fight off the skeletons, but be warned, they are not able to fight
+    hand to hand!
+
     You need 10 coins to unlock he boat in the port and sail away!
 
 
-    As the night comes, monsters may start to spawn from the forest. Build defences
-    to stop their enslaught!
-
-    If a monster makes it to you, you will instantly be killed.
+    If a skeleton makes it to you, you will instantly be killed.
 
 '
 --- !u!222 &712522837
@@ -2531,7 +2531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -236, y: -137}
+  m_AnchoredPosition: {x: -236, y: -175}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271555576

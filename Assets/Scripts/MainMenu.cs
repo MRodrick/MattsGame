@@ -21,8 +21,14 @@ public class MainMenu : MonoBehaviour
        // text.gameObject.active = false;
        // back.gameObject.active = false;
     }
-    
-    public void mainMenuSelection() {
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            BackButton();
+        }
+    }
+        public void mainMenuSelection() {
         if (i == 1)
         {
             LoadScene("GameScene1");

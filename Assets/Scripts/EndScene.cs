@@ -21,6 +21,10 @@ public class EndScene : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Application.Quit();
+        if (collision.tag == "Boat" || collision.tag == "Player")
+        {
+            Debug.Log("HIT");
+            Application.Quit();
+        }
     }
 }

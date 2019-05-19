@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Arrow
   - Archer
+  - Boat
   layers:
   - Default
   - TransparentFX
