@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Player_New : MonoBehaviour
 {
-
+    public GameObject paused;
+    public GameObject camera;
     private Vector2 velocity;
     private Rigidbody2D rb2d;
     private Sprite mySprite;
@@ -29,7 +30,20 @@ public class Player_New : MonoBehaviour
     void FixedUpdate()
     {
         bool clicked = false;
-
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1 && transform.position.x != 0)
+            {
+                paused.SetActive(true);
+               // camera.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+                Time.timeScale = 0;
+            }
+            else if (Time.time == 0)
+            {
+                paused.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
         clicked = true;
@@ -74,10 +88,7 @@ public class Player_New : MonoBehaviour
             rb2d.velocity = new Vector2(0, 0);
             animator.SetTrigger("startIdle");
         }
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+       
         text = coins.ToString();
 
     }

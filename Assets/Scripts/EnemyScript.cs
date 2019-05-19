@@ -18,6 +18,8 @@ public class EnemyScript : MonoBehaviour
     private int wallAttacks = 0;
     Collider2D wall;
     GameObject wallObject;
+    public GameObject death;
+    public GameObject paused;
     public WallHealth aWall;
     //  GameObject arrow;
     private int health = 100;
@@ -128,6 +130,9 @@ public class EnemyScript : MonoBehaviour
         }
         else { anim.SetTrigger("Attack Left"); }
         p.SetActive(false);
+        death.active = true;
+        paused.active = true;
+        Time.timeScale = 0;
     }
 
     void AttackArcher(GameObject a) {
