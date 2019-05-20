@@ -103,19 +103,32 @@ public class Player_New : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //   Debug.Log("entered as player");
+        Debug.Log(other.gameObject.tag);
 
         if (other.gameObject.tag == "Coin")
         {
             coins = coins + 1;
             Destroy(other.gameObject);
         }
-        else if (other.gameObject.tag == "Enemy") {
+        else if (other.gameObject.tag == "Enemy")
+        {
             death.active = true;
             gameObject.SetActive(false);
         }
-        
+        else if (other.gameObject.tag == "InvisibleWall") {
+            gameObject.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
+        }
+
+
     }
-  
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "InvisibleWall")
+        {
+            rb2d.velocity = new Vector2(0, 0);
+        }
+    }
+
     public void DeductCoins(int i) {
         this.coins = coins - i;
 

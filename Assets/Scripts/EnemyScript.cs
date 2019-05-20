@@ -155,7 +155,7 @@ public class EnemyScript : Player_New
     }
     private void Injured() {
         health = health - 5;
-        Debug.Log(health);
+      //  Debug.Log(health);
         if (health <= 0)
         {
             anim.SetTrigger("Die");
